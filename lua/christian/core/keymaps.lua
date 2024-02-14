@@ -40,3 +40,6 @@ keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>")
 
 -- toggleterm
 keymap.set("n", "<leader>j", "<cmd>ToggleTerm size=15 direction=horizontal<cr>")
+
+-- copilot
+keymap.set("i", "cpp", ":Copilot")
