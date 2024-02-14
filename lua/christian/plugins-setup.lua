@@ -67,6 +67,8 @@ local plugins = {
 		tag = "*",
 		config = true,
 	},
+	"github/copilot.vim",
+	"goolord/alpha-nvim",
 }
 
 require("lazy").setup(plugins)
