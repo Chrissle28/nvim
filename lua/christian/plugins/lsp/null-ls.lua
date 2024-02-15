@@ -11,7 +11,39 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 null_ls.setup({
 	sources = {
-		formatting.prettier,
+		formatting.prettier.with({
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"css",
+				"scss",
+				"less",
+				"html",
+				"json",
+				"jsonc",
+				"yaml",
+				"markdown",
+				"markdown.mdx",
+				"graphql",
+				"handlebars",
+			},
+			extra_args = {
+				"--arrow-parens always",
+				"--no-bracket-spacing false",
+				"--print-width 80",
+				"--single-quote",
+				"--jsx-single-quote",
+				"--tab-width 4",
+				"--use-tabs",
+				"--prose-wrap always",
+				"--single-attribute-per-line",
+				"--trailing-comma es5",
+				"--quote-props as-needed",
+			},
+		}),
 		formatting.stylua,
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
