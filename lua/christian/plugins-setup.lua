@@ -50,7 +50,7 @@ local plugins = {
 	},
 	"jose-elias-alvarez/typescript.nvim",
 	"onsails/lspkind.nvim",
-	"jose-elias-alvarez/null-ls.nvim",
+	"nvimtools/none-ls.nvim",
 	"jayp0521/mason-null-ls.nvim",
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -69,6 +69,7 @@ local plugins = {
 	},
 	"github/copilot.vim",
 	"goolord/alpha-nvim",
+	"folke/trouble.nvim",
 }
 
 require("lazy").setup(plugins)
