@@ -4,6 +4,12 @@ if not status then
 	return
 end
 
+-- import nvim-treesitter-parsers plugin safely
+local parsers_status, parsers = pcall(require, "nvim-treesitter.parsers")
+if not parsers_status then
+	return
+end
+
 -- configure treesitter
 treesitter.setup({
 	-- enable syntax highlighting

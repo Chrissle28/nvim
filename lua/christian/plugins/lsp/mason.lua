@@ -28,6 +28,7 @@ mason_lspconfig.setup({
 		"phpactor",
 		"emmet_ls",
 		"jsonls",
+		"gopls",
 	},
 	-- auto-install configured servers (with lspconfig)
 	automatic_installation = true, -- not the same as ensure_installed
@@ -39,6 +40,15 @@ mason_null_ls.setup({
 		"prettier", -- ts/js formatter
 		"stylua", -- lua formatter
 		"eslint_d", -- ts/js linter
+		"rustywind",
+		"pint", -- php formatter
+		"blade_formatter", -- blade formatter
+		"markdownlint", -- markdown linter
+		"gitlint", -- git commit message linter
+		"shellcheck", -- shell script linter
+		"phpcs", -- php linter
+		"pylint", -- python linter
+		"yamllint", -- yaml linter
 	},
 	-- auto-install configured formatters & linters (with null-ls)
 	automatic_installation = true,

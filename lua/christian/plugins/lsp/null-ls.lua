@@ -12,6 +12,22 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 null_ls.setup({
 	sources = {
 		formatting.prettier.with({
+			condition = function(utils)
+				return utils.root_has_file({
+					".prettierrc",
+					".prettierrc.json",
+					".prettierrc.yaml",
+					".prettierrc.yml",
+					".prettierrc.js",
+					".prettierrc.cjs",
+					"prettier.config.js",
+					"prettier.config.cjs",
+					".prettierrc.toml",
+					".prettierrc.json5",
+					".prettierrc.jsonc",
+					".prettierrc.hjson",
+				})
+			end,
 			filetypes = {
 				"javascript",
 				"javascriptreact",
@@ -29,32 +45,41 @@ null_ls.setup({
 				"markdown.mdx",
 				"graphql",
 				"handlebars",
-			},
-			extra_args = {
-				"--arrow-parens always",
-				"--no-bracket-spacing false",
-				"--print-width 80",
-				"--single-quote",
-				"--jsx-single-quote",
-				"--tab-width 4",
-				"--use-tabs",
-				"--prose-wrap always",
-				"--single-attribute-per-line",
-				"--trailing-comma es5",
-				"--quote-props as-needed",
+				"blade",
 			},
 		}),
 		formatting.stylua,
-		formatting.blade_formatter.with({
-			filetypes = { "blade" },
-		}),
 		formatting.pint,
+		formatting.blade_formatter,
+		formatting.markdownlint,
+		formatting.rustywind.with({
+			filetypes = {
+				"javascript",
+				"javascriptreact",
+				"typescript",
+				"typescriptreact",
+				"vue",
+				"svelte",
+				"html",
+				"blade",
+			},
+		}),
 		diagnostics.eslint_d.with({ -- js/ts linter
 			-- only enable eslint if root has .eslintrc.js (not in youtube nvim video)
 			condition = function(utils)
-				return utils.root_has_file(".eslintrc.js") -- change file extension if you use something else
+				return utils.root_has_file({
+					".eslintrc.js",
+					".eslintrc.cjs",
+					".eslintrc.yaml",
+					".eslintrc.yml",
+					".eslintrc.json",
+					".eslintrc",
+				}) -- change file extension if you use something else
 			end,
 		}),
+		diagnostics.phpcs,
+		diagnostics.gitlint,
+		diagnostics.pylint,
 	},
 	-- configure format on save
 	on_attach = function(current_client, bufnr)
