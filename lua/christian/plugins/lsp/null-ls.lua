@@ -77,7 +77,7 @@ null_ls.setup({
 				}) -- change file extension if you use something else
 			end,
 		}),
-		diagnostics.phpcs,
+		-- diagnostics.phpcs,
 		diagnostics.gitlint,
 		diagnostics.pylint,
 	},
