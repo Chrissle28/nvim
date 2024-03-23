@@ -34,6 +34,7 @@ treesitter.setup({
 		"svelte",
 		"graphql",
 		"go",
+		"templ",
 		"bash",
 		"lua",
 		"vim",
@@ -45,4 +46,10 @@ treesitter.setup({
 	},
 	-- auto install above language parsers
 	auto_install = true,
+})
+
+vim.filetype.add({
+	extension = {
+		templ = "templ",
+	},
 })
