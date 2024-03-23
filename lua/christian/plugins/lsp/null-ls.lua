@@ -52,6 +52,8 @@ null_ls.setup({
 		formatting.pint,
 		formatting.blade_formatter,
 		formatting.markdownlint,
+		formatting.gofumpt,
+		formatting.goimports,
 		formatting.rustywind.with({
 			filetypes = {
 				"javascript",
@@ -79,6 +81,7 @@ null_ls.setup({
 		}),
 		-- diagnostics.phpcs,
 		diagnostics.gitlint,
+		diagnostics.golangci_lint,
 		diagnostics.pylint,
 	},
 	-- configure format on save
