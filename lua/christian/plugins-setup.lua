@@ -41,6 +41,20 @@ local plugins = {
 	"williamboman/mason-lspconfig.nvim",
 	"hrsh7th/cmp-nvim-lsp",
 	{
+		"olrtg/nvim-emmet",
+		config = function()
+			vim.keymap.set({ "n", "v" }, "<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
+		end,
+	},
+	{
+		"iamcco/markdown-preview.nvim",
+		cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+		ft = { "markdown" },
+		build = function()
+			vim.fn["mkdp#util#install"]()
+		end,
+	},
+	{
 		"glepnir/lspsaga.nvim",
 		branch = "main",
 		requires = {
