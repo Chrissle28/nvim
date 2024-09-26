@@ -40,6 +40,7 @@ null_ls.setup({
 				"html",
 				"json",
 				"jsonc",
+				"liquid",
 				"yaml",
 				"markdown",
 				"markdown.mdx",
@@ -64,6 +65,7 @@ null_ls.setup({
 				"svelte",
 				"html",
 				"blade",
+				"liquid",
 			},
 		}),
 		diagnostics.eslint_d.with({ -- js/ts linter

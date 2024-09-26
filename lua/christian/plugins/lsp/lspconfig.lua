@@ -149,6 +149,7 @@ lspconfig["emmet_ls"].setup({
 		"less",
 		"svelte",
 		"vue",
+		"liquid",
 		"blade.php",
 	},
 })
